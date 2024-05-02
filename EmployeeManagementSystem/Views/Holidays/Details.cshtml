@@ -1,0 +1,77 @@
+﻿@model EmployeeManagementSystem.Models.Holiday
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Holiday Details</h1>
+
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.Title)
+                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StartDate)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.StartDate)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EndDate)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.EndDate)
+                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.Description)
+                    </td>
+
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CreatedById)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.CreatedById)
+                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CreatedOn)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.CreatedOn)
+                    </td>
+
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ModifiedByID)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.ModifiedByID)
+                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ModifiedOn)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.ModifiedOn)
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+
+    </div>
+    <a asp-action="Index">Back to List</a>
+</div>

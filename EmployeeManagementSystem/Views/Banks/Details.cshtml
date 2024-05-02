@@ -1,0 +1,73 @@
+﻿@model EmployeeManagementSystem.Models.Bank
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Bank Details</h1>
+
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
+            <table  class="table table-bordered table-striped">
+            <tr >
+                <th>
+                    @Html.DisplayNameFor(model => model.Code)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Code)
+                </td>
+                <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <td>
+                        @Html.DisplayFor(model => model.Name)
+                </td>
+
+           </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AccountNumber)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.AccountNumber)
+                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CreatedById)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.CreatedById)
+                    </td>
+
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CreatedOn)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.CreatedOn)
+                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ModifiedByID)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.ModifiedByID)
+                    </td>
+
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ModifiedOn)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.ModifiedOn)
+                    </td>
+ 
+                </tr>
+               
+           </table>
+        </div>
+          
+    </div>
+    <a asp-action="Index">Back to List</a>
+</div>

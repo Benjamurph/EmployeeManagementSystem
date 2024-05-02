@@ -1,0 +1,76 @@
+﻿@model IEnumerable<EmployeeManagementSystem.Models.JobApplication>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Job Applications List</h3>
+    </div>
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.JobPostId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FullName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PhoneNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Address)
+                    </th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.JobPostId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            <div class="input-group input-group-lg">
+                                <div class="input-group-prepend">
+                                    <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                                        Action
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-warning"><i class="fa fa-eye"></i> View</a></li>
+                                        <li class="dropdown-divider"></li>
+                                        <li class="dropdown-item"><a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</a></li>
+                                        <li class="dropdown-divider"></li>
+                                        <li class="dropdown-item"><a asp-action="ApproveJob" asp-route-id="@item.Id" class="btn btn-primary"><i class="fa fa-check" ></i> Approve</a></li>
+                                        <li class="dropdown-divider"></li>
+                                        <li class="dropdown-item"><a asp-action="RejectJob" asp-route-id="@item.Id" class="btn btn-danger"><i class="fa fa-check" ></i> Reject</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

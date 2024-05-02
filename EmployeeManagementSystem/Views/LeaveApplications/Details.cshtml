@@ -1,0 +1,125 @@
+﻿@model EmployeeManagementSystem.Models.LeaveApplication
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Leave Application Details</h1>
+
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Employee)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.Employee.Id)
+                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NumberOfDays)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.NumberOfDays)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StartDate)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.StartDate)
+                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EndDate)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.EndDate)
+                    </td>
+
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Duration)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.Duration.Description)
+                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LeaveType)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.LeaveType.Name)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Attachment)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.Attachment)
+                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.Description)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.Status.Description)
+                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ApprovedById)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.ApprovedById)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ApprovedOn)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.ApprovedOn)
+                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CreatedById)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.CreatedById)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CreatedOn)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.CreatedOn)
+                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ModifiedByID)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.ModifiedByID)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ModifiedOn)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.ModifiedOn)
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <a asp-action="Index">Back to List</a>
+</div>

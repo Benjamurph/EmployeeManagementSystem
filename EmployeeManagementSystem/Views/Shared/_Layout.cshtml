@@ -1,0 +1,375 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Employee Management System</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/AdminLTE/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="~/AdminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+    <link rel="stylesheet" href="~/AdminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+    <link rel="stylesheet" href="~/AdminLTE/plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+    <link rel="stylesheet" href="~/AdminLTE/dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="~/AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+    <link rel="stylesheet" href="~/AdminLTE/plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+    <link rel="stylesheet" href="~/AdminLTE/plugins/summernote/summernote-bs4.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="~/AdminLTE/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/AdminLTE/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/AdminLTE/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+    </ul>
+    <h2 style="margin-top: 8px">Employee Management System</h2>
+  </nav>
+  <!-- /.navbar -->
+  <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #1e488c">
+    <!-- Brand Logo -->
+            <a href="index3.html" class="brand-link" style="border-bottom: 1px solid rgb(151 166 181 / 80%)">
+                <img src="/UploadedImages/default-profile-icon-6.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Benjamin Murphy</span>
+    </a>
+    <!-- Sidebar -->
+            <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex" style="border-bottom: 1px solid rgb(151 166 181 / 80%)">
+        <div class="image">
+                        <img src="~/AdminLTE/dist/img/Logout.png" class="img-circle" alt="User Image">
+        </div>
+        <div class="info">
+                        <a href="#" class="d-block">
+                            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                                <button style="background: none; color: inherit; border: none; font: inherit; cursor: pointer; padding: 0;" type="submit">Logout</button>
+                            </form>
+                        </a>
+        </div>
+      </div>
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item">
+                            <a asp-controller="/" asp-action="Index" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
+          </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    HR & Payoll
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a asp-controller="Employees" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Employees List</p>
+                                    </a>
+                                </li>                             
+                                <li class="nav-item">
+                                    <a asp-controller="JobBoards" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Jobs Board</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="JobBoards" asp-action="Create" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Post Job</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="JobBoards" asp-action="JobIndex" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Job Applications</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="JobBoards" asp-action="ApprovedJobApplications" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Approved Job Applications</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="JobBoards" asp-action="RejectedJobApplications" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Rejected Job Applications</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>
+                                    Leave Applications
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a asp-controller="LeaveApplications" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Leave Applications</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="LeaveApplications" asp-action="ApprovedLeaveApplications" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Approved Leave Applications</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="LeaveApplications" asp-action="RejectedLeaveApplications" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Rejected Leave Applications</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="LeaveAdjustmentEntries" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Leave Adjustment</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="LeaveBalances" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Leave Balances</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>
+                                    System Administration
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a asp-controller="SystemCodes" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>System Codes</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="SystemCodeDetails" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>System Code Details</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Banks" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Banks</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Departments" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Department</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Designations" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Designation</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Countries" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Countries</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Cities" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Cities</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Holidays" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Holidays</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="LeaveTypes" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Leave Types</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="LeavePeriods" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Leave Periods</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Announcements" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Announcements</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-lock"></i>
+                                <p>
+                                    System Security
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a asp-controller="Users" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>System Users</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Roles" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>System Roles</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="SystemProfiles" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>System Profiles</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Audits" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>System Audit Logs</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Profiles" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>User Roles</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper" style="padding-top: 15px">
+
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+                    @RenderBody()
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+                <script src="~/AdminLTE/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+                <script src="~/AdminLTE/plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+                <script src="~/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+                <script src="~/AdminLTE/plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+                <script src="~/AdminLTE/plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+                <script src="~/AdminLTE/plugins/jqvmap/jquery.vmap.min.js"></script>
+                <script src="~/AdminLTE/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+                <script src="~/AdminLTE/plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+                <script src="~/AdminLTE/plugins/moment/moment.min.js"></script>
+                <script src="~/AdminLTE/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+                <script src="~/AdminLTE/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+                <script src="~/AdminLTE/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+                <script src="~/AdminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+                <script src="~/AdminLTE/dist/js/adminlte.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+                <script src="~/AdminLTE/dist/js/pages/dashboard.js"></script>
+                <!-- DataTables  & Plugins -->
+                <script src="~/AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
+                <script src="~/AdminLTE/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+                <script src="~/AdminLTE/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+                <script src="~/AdminLTE/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+                <script src="~/AdminLTE/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+                <script src="~/AdminLTE/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+                <script src="~/AdminLTE/plugins/jszip/jszip.min.js"></script>
+                <script src="~/AdminLTE/plugins/pdfmake/pdfmake.min.js"></script>
+                <script src="~/AdminLTE/plugins/pdfmake/vfs_fonts.js"></script>
+                <script src="~/AdminLTE/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+                <script src="~/AdminLTE/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+                <script src="~/AdminLTE/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+                <script src="~/AdminLTE/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+                <script>
+                    $(function () {
+                        $("#example1").DataTable({
+                            "responsive": true, "lengthChange": false, "autoWidth": false
+                        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+                        $('#example2').DataTable({
+                            "paging": true,
+                            "lengthChange": false,
+                            "searching": false,
+                            "ordering": true,
+                            "info": true,
+                            "autoWidth": false,
+                            "responsive": true,
+                        });
+                    });
+                </script>
+                @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

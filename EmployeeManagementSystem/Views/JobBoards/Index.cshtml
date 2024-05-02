@@ -1,0 +1,98 @@
+﻿@model EmployeeManagementSystem.ViewModels.JobsBoardViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div style="max-width: 1000px; margin-left:auto; margin-right:auto">
+    <h1 style="margin-bottom: 20px">Jobs Board</h1>
+<div class="row">
+<div class="col-sm-7" style="margin-right: 10px">
+@foreach (var item in Model.JobBoards) {
+
+                <div class="card card-primary card-outline" style="border-top: 3px solid #3d66a9; margin-bottom: 30px">
+    <div class="card-body box-profile" >
+
+            <h1 class="text-muted">@Html.DisplayFor(modelItem => item.Title)</h1>
+
+                        <p>@Html.DisplayFor(modelItem => item.Department.Name) | @Html.DisplayFor(modelItem => item.Designation.Name) | @Html.DisplayFor(modelItem => item.City.Name)</p>
+                        <p style="text-overflow: ellipsis; color: grey; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden">@Html.DisplayFor(modelItem => item.Description)</p>
+
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary btn-block" style="background-color: #3d66a9; border: #3d66a9; width: 130px"><b>Apply now</b></a>
+    </div>
+    </div>
+}
+    </div>
+    <div class="col-sm-4">
+            <div class="card card-primary card-outline" style="border-top: 3px solid #3d66a9">
+                <div class="card-body box-profile">
+                    <h3 class="profile-username">Filter</h3>
+                    <div class="card collapsed-card">
+                        <div class="card-header">
+                <h3 class="card-title">Department</h3>
+                <div class="card-tools" >
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body">
+                            <ul style="padding:0">
+                                @foreach (var item in Model.Departments)
+                                {
+                                    <li style="list-style-type:none">
+                                        <input type="checkbox" name="departments" value="@item.Id" id="item-@item.Id" style="transform: scale(1.5)"/>
+                                        <label for="item-@item.Id" style="font-weight: 500; margin-left: 10px">@item.Name</label>
+                                    </li>
+                                }
+                            </ul>
+              </div>
+            </div>
+                    <div class="card collapsed-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Designation</h3>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <ul style="padding:0">
+                                @foreach (var item in Model.Designations)
+                                {
+                                    <li style="list-style-type:none">
+                                        <input type="checkbox" name="designations" value="@item.Id" id="item-@item.Id" style="transform: scale(1.5)" />
+                                        <label for="item-@item.Id" style="font-weight: 500; margin-left: 10px">@item.Name</label>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card collapsed-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Location</h3>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <ul style="padding:0">
+                                @foreach (var item in Model.Cities)
+                                {
+                                    <li style="list-style-type:none">
+                                        <input type="checkbox" name="cities" value="@item.Id" id="item-@item.Id" style="transform: scale(1.5);" />
+                                        <label for="item-@item.Id" style="font-weight: 500; margin-left: 10px">@item.Name</label>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+</div>

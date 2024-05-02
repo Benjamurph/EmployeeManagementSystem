@@ -1,0 +1,103 @@
+﻿@model EmployeeManagementSystem.Models.LeaveAdjustmentEntry
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Leave Adjustment Details</h1>
+
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LeavePeriod)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.LeavePeriod)
+                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Employee)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.Employee.Id)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NoOfDays)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.NoOfDays)
+                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LeaveAdjustmentDate)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.LeaveAdjustmentDate)
+                    </td>
+
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LeaveStartDate)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.LeaveStartDate)
+                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LeaveEndDate)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.LeaveEndDate)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AdjustmentDescription)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.AdjustmentDescription)
+                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AdjustmentType)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.AdjustmentType.Id)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CreatedById)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.CreatedById)
+                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CreatedOn)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.CreatedOn)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ModifiedByID)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.ModifiedByID)
+                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ModifiedOn)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.ModifiedOn)
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <a asp-action="Index">Back to List</a>
+</div>

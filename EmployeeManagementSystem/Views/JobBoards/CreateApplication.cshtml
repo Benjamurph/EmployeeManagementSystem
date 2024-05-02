@@ -1,0 +1,107 @@
+﻿@model EmployeeManagementSystem.Models.JobApplication
+
+@{
+    ViewData["Title"] = "CreateApplication";
+}
+
+<div class="row justify-content-center" style="padding-top: 15px">
+
+    <div class="col-lg-8">
+        <h1 style="margin-bottom: 20px">Application Form</h1>
+        <div class="card card-primary card-outline" style="border-top: 3px solid #3d66a9">
+            <div class="card-body box-profile">
+                <div class="text-left">
+                    <form asp-action="CreateApplication" enctype="multipart/form-data">
+                        
+                        <h3 style="border-bottom: 1px solid #ced4da; height: 50px; margin-bottom: 20px">Contact Information</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="FirstName" class="control-label"></label>
+                                    <input asp-for="FirstName" class="form-control" />
+                                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="MiddleName" class="control-label"></label>
+                                    <input asp-for="MiddleName" class="form-control" />
+                                    <span asp-validation-for="MiddleName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="LastName" class="control-label"></label>
+                                    <input asp-for="LastName" class="form-control" />
+                                    <span asp-validation-for="LastName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Email" class="control-label"></label>
+                                    <input asp-for="Email" class="form-control" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="PhoneNumber" class="control-label"></label>
+                                    <input asp-for="PhoneNumber" class="form-control" />
+                                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Address" class="control-label"></label>
+                                    <input asp-for="Address" class="form-control" />
+                                    <span asp-validation-for="Address" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="PostCode" class="control-label"></label>
+                                    <input asp-for="PostCode" class="form-control" />
+                                    <span asp-validation-for="PostCode" class="text-danger"></span>
+                                </div>
+                            </div>
+                           
+                            </div>
+                        <h3 style="border-bottom: 1px solid #ced4da; height: 50px; margin-top: 20px; margin-bottom: 20px">Personal Information</h3>
+                            <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="GenderId" class="control-label"></label>
+                                    <select asp-for="GenderId" class="form-control" asp-items="ViewBag.GenderId"></select>
+                                    <span asp-validation-for="GenderId" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="DisabilityId" class="control-label"></label>
+                                    <select asp-for="DisabilityId" class="form-control" asp-items="ViewBag.DisabilityId">
+                                        <option value="">Select Disability</option>
+                                    </select>
+                                    <span asp-validation-for="DisabilityId" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label>CV</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <label asp-for="CVFile" class="custom-file-label"></label>
+                                        <input asp-for="CVFile" name="file" type="file" class="custom-file-input" accept=".pdf, .doc, .docx, .rtf, .html, .odt ">
+                                        <span asp-validation-for="CVFile" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        <div class="form-group">
+                            <input type="submit" value="CreateApplication" class="btn btn-primary" style="background-color: #3d66a9; border: #3d66a9; margin-top:25px" />
+                        </div>
+                        </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,109 @@
+﻿@model EmployeeManagementSystem.Models.JobApplication
+
+@{
+    ViewData["Title"] = "Approve Leave";
+}
+
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Approve Leave Applications Details</h3>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered table-striped">
+
+            <thead>
+                <tr>
+                    <th class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.JobPostId)
+                    </th>
+                    <td class="col-sm-3">
+                        @Html.DisplayFor(model => model.JobPostId)
+                    </td>
+                    <th class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </th>
+                    <td class="col-sm-3">
+                        @Html.DisplayFor(model => model.FirstName)
+                    </td>
+                <tr>
+                    <th class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.MiddleName)
+                    </th>
+                    <td class="col-sm-3">
+                            @Html.DisplayFor(model => model.MiddleName)
+                    </td>
+                    <th class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.LastName)
+                    </th>
+                    <td class="col-sm-3">
+                            @Html.DisplayFor(model => model.LastName)
+                    </td>
+                </tr>
+                <tr>
+                    <th class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.PhoneNumber)
+                    </th>
+                    <td class="col-sm-3">
+                            @Html.DisplayFor(model => model.PhoneNumber)
+                    </td>
+                    <th class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.Address)
+                    </th>
+                    <td class="col-sm-3">
+                            @Html.DisplayFor(model => model.Address)
+                    </td>
+                </tr>
+                <tr>
+                    <th class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.PostCode)
+                    </th>
+                    <td class="col-sm-3">
+                            @Html.DisplayFor(model => model.PostCode)
+                    </td>
+                    <th class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <td class="col-sm-3">
+                            @Html.DisplayFor(model => model.Email)
+                    </td>
+                </tr>
+                <tr>
+                    <th class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.Gender)
+                    </th>
+                    <td class="col-sm-3">
+                            @Html.DisplayFor(model => model.Gender.Description)
+                    </td>
+                    <th class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.Disability)
+                    </th>
+                    <td class="col-sm-3">
+                            @Html.DisplayFor(model => model.Disability.Description)
+                    </td>
+                </tr>
+            </thead>
+        </table>
+
+        <a class="btn btn-primary" href="@(@Model.CV + Model.FileName)" style="margin-top: 15px; background-color: #3d66a9; border: #3d66a9;">View CV </a>
+
+    </div>
+    
+    <div>
+    </div>
+</div>
+
+<div class="row">
+    <form asp-action="ApproveJob" method="post">
+        <div class="col-md-12">
+            <div class="card-footer">
+                <div class="clearfix">
+                    <a asp-action="JobIndex" class="btn btn-danger push-left">Back to List</a>
+
+                    <input type="submit" value="Approve Job Application" class="btn btn-primary" style="background-color: #3d66a9; border: #3d66a9;" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

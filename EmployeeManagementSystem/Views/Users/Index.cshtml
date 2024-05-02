@@ -1,0 +1,76 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<ApplicationUser>
+
+@{
+    ViewData["Title"] = "System Users";
+}
+
+<p >
+    <a asp-action="Create" class="btn btn-primary" style="background-color: #3d66a9; border: #3d66a9"> <i class="fa fa-plus"></i> Add New User</a>
+</p>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Users List</h3>
+    </div>
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        User Id
+                    </th>
+                    <th>
+                        Full Name
+                    </th>
+                    <th>
+                        Role
+                    </th>
+                    <th>
+                        Email
+                    </th>
+
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Role.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+
+                        <td>
+                            <div class="input-group input-group-lg">
+                                <div class="input-group-prepend">
+                                    <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                                        Action
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a asp-action="AssignUserRole" asp-route-id="@item.Id" class="btn btn-primary" style="background-color: #3d66a9; border: #3d66a9"><i class="fa fa-edit"></i> Assign User Role</a></li>
+                                        <li class="dropdown-divider"></li>
+                                        <li class="dropdown-item"> <a asp-action="UserProfile" asp-route-id="@item.Id" class="btn btn-warning"><i class="fa fa-eye"></i> View Profile</a></li>
+                                        <li class="dropdown-divider"></li>
+                                        <li class="dropdown-item"><a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</a></li>
+                                        <li class="dropdown-divider"></li>
+                                        <li class="dropdown-item"><a asp-action="EmployeeLink" asp-route-id="@item.Id" class="btn btn-secondary"><i class="fa fa-link"></i> Employee Link</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

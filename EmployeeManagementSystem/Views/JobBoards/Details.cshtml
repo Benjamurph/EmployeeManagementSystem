@@ -1,0 +1,47 @@
+﻿@model EmployeeManagementSystem.Models.JobBoard
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div>
+    <div style="max-width: 1000px; margin-left:auto; margin-right:auto">
+        <a asp-action="Index" >Back to List</a>
+        <div class="row" style="margin-top: 20px">
+            <div class="col-sm-7" style="margin-right: 10px">
+                    <div class="card card-primary card-outline" style="border-top: 3px solid #3d66a9; margin-bottom: 30px">
+                        <div class="card-body box-profile">
+                        <h1 class="text-muted" style="font-size: 52px; margin-bottom: 20px">@Html.DisplayFor(model => model.Title)</h1>
+                        <p>@Html.DisplayFor(model => model.Description)</p>
+                        <b>@Html.DisplayFor(model => model.SubHeading1)</b>
+                        <p>@Html.DisplayFor(model => model.Paragraph1)</p>
+                        <b>@Html.DisplayFor(model => model.SubHeading2)</b>
+                        <p>@Html.DisplayFor(model => model.Paragraph2)</p>
+                        <b>@Html.DisplayFor(model => model.SubHeading3)</b>
+                        <p>@Html.DisplayFor(model => model.Paragraph3)</p>
+                        <b>@Html.DisplayFor(model => model.SubHeading4)</b>
+                        <p>@Html.DisplayFor(model => model.Paragraph4)</p>
+                        <b>@Html.DisplayFor(model => model.SubHeading5)</b>
+                        <p>@Html.DisplayFor(model => model.Paragraph5)</p>
+                    </div>
+                    </div>
+                    </div>
+            <div class="col-sm-4">
+                <div class="card card-primary card-outline" style="border-top: 3px solid #3d66a9">
+                    <div class="card-body box-profile">
+                        <h3>Overview</h3>
+                        <p>Department: @Html.DisplayFor(model => model.Department.Name)</p>
+                        <p>Designation: @Html.DisplayFor(model => model.Designation.Name)</p>
+                        <p>Location: @Html.DisplayFor(model => model.City.Name)</p>
+                        <p>Salary: @Html.DisplayFor(model => model.Salary)</p>
+                        <p>Positions Available: @Html.DisplayFor(model => model.PositionsAvailable)</p>
+                        <a asp-action="CreateApplication" asp-route-id="@Model.Id" class="btn btn-primary btn-block" style="background-color: #3d66a9; border: #3d66a9; width: 130px"><b>Apply now</b></a>
+                    </div>
+                </div>
+            </div>
+
+                    </div>
+                        </div>
+                    </div> 
+            </div>
+            
