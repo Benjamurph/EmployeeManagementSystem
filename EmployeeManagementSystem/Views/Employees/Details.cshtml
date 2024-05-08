@@ -213,13 +213,13 @@
                         @Html.DisplayNameFor(model => model.CreatedById)
                     </th>
                     <td>
-                        @Html.DisplayFor(model => model.EmploymentTerms.CreatedById)
+                        @Html.DisplayFor(model => model.CreatedById)
                     </td>
                      <th>
                         @Html.DisplayNameFor(model => model.CreatedOn)
                     </th>
                     <td>
-                        @Html.DisplayFor(model => model.Status.CreatedOn)
+                        @Html.DisplayFor(model => model.CreatedOn)
                     </td>
 
                 </tr>
@@ -228,15 +228,37 @@
                         @Html.DisplayNameFor(model => model.ModifiedByID)
                     </th>
                     <td>
-                        @Html.DisplayFor(model => model.EmploymentTerms.ModifiedByID)
+                        @Html.DisplayFor(model => model.ModifiedByID)
                     </td>
                      <th>
                         @Html.DisplayNameFor(model => model.ModifiedOn)
                     </th>
                     <td>
-                        @Html.DisplayFor(model => model.Status.ModifiedOn)
+                        @Html.DisplayFor(model => model.ModifiedOn)
                     </td>
 
+                </tr>
+                <tr>
+                     <th>
+                        @Html.DisplayNameFor(model => model.AnnualSalary)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.AnnualSalary)
+                    </td>
+                     <th>
+                        @Html.DisplayNameFor(model => model.HourlyRate)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.HourlyRate)
+                    </td>
+                </tr>
+                <tr>
+                     <th>
+                        @Html.DisplayNameFor(model => model.ContractualHours)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.ContractualHours)
+                    </td>
                 </tr>
            </table>
         </div>
@@ -244,3 +266,4 @@
     </div>
     <a asp-action="Index">Back to List</a>
 </div>
+
