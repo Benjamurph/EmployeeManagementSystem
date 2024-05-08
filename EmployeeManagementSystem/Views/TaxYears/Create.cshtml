@@ -1,0 +1,98 @@
+﻿@model EmployeeManagementSystem.Models.TaxYear
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>TaxYear</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Year" class="control-label"></label>
+                <input asp-for="Year" class="form-control" />
+                <span asp-validation-for="Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDate" class="control-label"></label>
+                <input asp-for="StartDate" type="date" class="form-control" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDate" class="control-label"></label>
+                <input asp-for="EndDate" type="date" class="form-control" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Closed" /> @Html.DisplayNameFor(model => model.Closed)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Locked" /> @Html.DisplayNameFor(model => model.Locked)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonalAllowance" class="control-label"></label>
+                <input asp-for="PersonalAllowance" class="form-control" />
+                <span asp-validation-for="PersonalAllowance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BasicRateLowerThreshold" class="control-label"></label>
+                <input asp-for="BasicRateLowerThreshold" class="form-control" />
+                <span asp-validation-for="BasicRateLowerThreshold" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BasicRateUpperThreshold" class="control-label"></label>
+                <input asp-for="BasicRateUpperThreshold" class="form-control" />
+                <span asp-validation-for="BasicRateUpperThreshold" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BasicRateTaxPercentage" class="control-label"></label>
+                <input asp-for="BasicRateTaxPercentage" class="form-control" />
+                <span asp-validation-for="BasicRateTaxPercentage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HigherRateLowerThreshold" class="control-label"></label>
+                <input asp-for="HigherRateLowerThreshold" class="form-control" />
+                <span asp-validation-for="HigherRateLowerThreshold" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HigherRateUpperThreshold" class="control-label"></label>
+                <input asp-for="HigherRateUpperThreshold" class="form-control" />
+                <span asp-validation-for="HigherRateUpperThreshold" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HigherRateTaxPercentage" class="control-label"></label>
+                <input asp-for="HigherRateTaxPercentage" class="form-control" />
+                <span asp-validation-for="HigherRateTaxPercentage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdditionalRateThreshold" class="control-label"></label>
+                <input asp-for="AdditionalRateThreshold" class="form-control" />
+                <span asp-validation-for="AdditionalRateThreshold" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdditionalRateTaxPercentage" class="control-label"></label>
+                <input asp-for="AdditionalRateTaxPercentage" class="form-control" />
+                <span asp-validation-for="AdditionalRateTaxPercentage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" style="background-color: #3d66a9; border: #3d66a9" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

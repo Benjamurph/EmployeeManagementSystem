@@ -111,6 +111,15 @@ namespace EmployeeManagementSystem.Models
         [Display(Name = "Leave Balance")]
         public Decimal? LeaveBalance { get; set; } = 30;
 
+        [Display(Name = "Annual Salary (£)")]
+        public decimal AnnualSalary { get; set; }
+
+        [Display(Name = "Hourly Rate (£)")]
+        public decimal HourlyRate { get; set; }
+
+        [Display(Name = "Contractual Hours Per Week")]
+        public decimal ContractualHours { get; set; }
+
         public string? Photo { get; set; }
 
         public string? FileName { get; set; }

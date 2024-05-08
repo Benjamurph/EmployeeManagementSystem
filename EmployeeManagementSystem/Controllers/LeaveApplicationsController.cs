@@ -253,18 +253,16 @@ namespace EmployeeManagementSystem.Controllers
         {
             var pendingStatus = _context.SystemCodeDetails.Include(x => x.SystemCode).Where(y => y.Code == "Pending" && y.SystemCode.Code == "LeaveApprovalStatus").First();
 
-            if (ModelState.IsValid)
-            {
-                var Userid = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                leaveApplication.CreatedById = Userid;
-                leaveApplication.CreatedOn = DateTime.Now;
-                leaveApplication.ModifiedByID = Userid;
-                leaveApplication.ModifiedOn = DateTime.Now;
-                leaveApplication.StatusId = pendingStatus.Id;
-                _context.Add(leaveApplication);
-                await _context.SaveChangesAsync(Userid);
-                return RedirectToAction(nameof(Index));
-            }
+            var Userid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            leaveApplication.CreatedById = Userid;
+            leaveApplication.CreatedOn = DateTime.Now;
+            leaveApplication.ModifiedByID = Userid;
+            leaveApplication.ModifiedOn = DateTime.Now;
+            leaveApplication.StatusId = pendingStatus.Id;
+            _context.Add(leaveApplication);
+            await _context.SaveChangesAsync(Userid);
+            return RedirectToAction(nameof(Index));
+
             ViewData["DurationId"] = new SelectList(_context.SystemCodeDetails.Include(x => x.SystemCode).Where(y => y.SystemCode.Code == "LeaveDuration"), "Id", "Description", leaveApplication.DurationId);
             ViewData["EmployeeId"] = new SelectList(_context.Employees, "Id", "FullName", leaveApplication.EmployeeId);
             ViewData["LeaveTypeId"] = new SelectList(_context.LeaveTypes, "Id", "Name", leaveApplication.LeaveTypeId);

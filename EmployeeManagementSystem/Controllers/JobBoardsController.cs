@@ -402,5 +402,6 @@ namespace EmployeeManagementSystem.Controllers
             return RedirectToAction(nameof(JobIndex));
             return View(jobApplication);
         }
+
     }
 }

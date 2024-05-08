@@ -4,6 +4,7 @@ using EmployeeManagementSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeManagementSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240506180618_PaymentRecord")]
+    partial class PaymentRecord
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -393,9 +396,6 @@ namespace EmployeeManagementSystem.Migrations
                     b.Property<decimal?>("AllocatedLeave")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal>("AnnualSalary")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<string>("BankAccountNumber")
                         .HasColumnType("nvarchar(max)");
 
@@ -404,9 +404,6 @@ namespace EmployeeManagementSystem.Migrations
 
                     b.Property<int?>("CityId")
                         .HasColumnType("int");
-
-                    b.Property<decimal>("ContractualHours")
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("CountryId")
                         .HasColumnType("int");
@@ -452,9 +449,6 @@ namespace EmployeeManagementSystem.Migrations
 
                     b.Property<int?>("GenderId")
                         .HasColumnType("int");
-
-                    b.Property<decimal>("HourlyRate")
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateOnly?>("InactiveDate")
                         .HasColumnType("date");
@@ -966,6 +960,16 @@ namespace EmployeeManagementSystem.Migrations
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
 
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("HourlyRate")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("HoursWorked")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("ModifiedByID")
                         .HasColumnType("nvarchar(max)");
 
@@ -987,8 +991,16 @@ namespace EmployeeManagementSystem.Migrations
                     b.Property<DateTime>("PayDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<decimal>("TaxRate")
+                    b.Property<string>("PayMonth")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Tax")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("TaxCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TaxYearId")
                         .HasColumnType("int");
@@ -997,9 +1009,6 @@ namespace EmployeeManagementSystem.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("TotalEarnings")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("TotalHoursWorked")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
@@ -1154,21 +1163,6 @@ namespace EmployeeManagementSystem.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AdditionalRateTaxPercentage")
-                        .HasColumnType("int");
-
-                    b.Property<int>("AdditionalRateThreshold")
-                        .HasColumnType("int");
-
-                    b.Property<int>("BasicRateLowerThreshold")
-                        .HasColumnType("int");
-
-                    b.Property<int>("BasicRateTaxPercentage")
-                        .HasColumnType("int");
-
-                    b.Property<int>("BasicRateUpperThreshold")
-                        .HasColumnType("int");
-
                     b.Property<bool>("Closed")
                         .HasColumnType("bit");
 
@@ -1178,17 +1172,12 @@ namespace EmployeeManagementSystem.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateOnly>("EndDate")
-                        .HasColumnType("date");
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("HigherRateLowerThreshold")
-                        .HasColumnType("int");
-
-                    b.Property<int>("HigherRateTaxPercentage")
-                        .HasColumnType("int");
-
-                    b.Property<int>("HigherRateUpperThreshold")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<bool>("Locked")
                         .HasColumnType("bit");
@@ -1199,15 +1188,12 @@ namespace EmployeeManagementSystem.Migrations
                     b.Property<DateTime>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("PersonalAllowance")
-                        .HasColumnType("int");
-
-                    b.Property<DateOnly>("StartDate")
-                        .HasColumnType("date");
-
-                    b.Property<string>("Year")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 

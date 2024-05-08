@@ -65,6 +65,10 @@ namespace EmployeeManagementSystem.Data
 
         public DbSet<Announcement> Announcements { get; set; }
 
+        public DbSet<PaymentRecord> PaymentRecords { get; set; }
+
+        public DbSet<TaxYear> TaxYears { get; set; }
+
         public virtual async Task<int> SaveChangesAsync(string userId = null)
         {
             OnBeforeSavingChanges(userId);

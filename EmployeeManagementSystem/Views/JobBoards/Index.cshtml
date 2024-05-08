@@ -96,3 +96,28 @@
     </div>
 </div>
 </div>
+
+@section Scripts {
+    <script>
+        $('input[type="checkbox][name="departments"]').on('change', function () {
+            var selectedDepartments = $('input[type="checkbox][name="departments"]:checked').map(function () {
+                return $(this).val();
+            }).get();
+
+            $.ajax({
+                url: '@Url.Action("GetFilteredDepartments", "Department")',
+                type: 'POST',
+                dataType: 'html',
+                data: {
+                    departmentIds: selectedDepartments
+                },
+                success: function (result) {
+                    $('#department-list').html(result);
+                },
+                error: function () {
+                    console.log('An error occured')
+                }
+            });
+        });
+    </script>
+}

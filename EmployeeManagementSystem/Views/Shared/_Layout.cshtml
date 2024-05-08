@@ -123,6 +123,12 @@
                                         <p>Rejected Job Applications</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a asp-controller="PaymentRecords" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Payment Records</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -233,6 +239,12 @@
                                     <a asp-controller="LeavePeriods" asp-action="Index" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Leave Periods</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="TaxYears" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Tax Year</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -354,6 +366,7 @@
                 <script src="~/AdminLTE/plugins/datatables-buttons/js/buttons.print.min.js"></script>
                 <script src="~/AdminLTE/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
                 <script src="~/AdminLTE/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
                 <script>
                     $(function () {
                         $("#example1").DataTable({

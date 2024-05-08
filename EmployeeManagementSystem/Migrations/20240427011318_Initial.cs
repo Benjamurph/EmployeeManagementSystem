@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -556,7 +555,7 @@ namespace EmployeeManagementSystem.Migrations
                         column: x => x.EmployeeId,
                         principalTable: "Employees",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_LeaveAdjustmentEntries_SystemCodeDetails_AdjustmentTypeId",
                         column: x => x.AdjustmentTypeId,
@@ -602,7 +601,7 @@ namespace EmployeeManagementSystem.Migrations
                         column: x => x.EmployeeId,
                         principalTable: "Employees",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_LeaveApplications_LeaveTypes_LeaveTypeId",
                         column: x => x.LeaveTypeId,
